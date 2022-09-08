@@ -5,7 +5,7 @@ export default function ColorPicker(props) {
   const color = props.color;
 
   const { selColor, setSelColor } = useContext(PainterContext);
-
+  //selColor มาจาก Provider
   return (
     <div
       style={{
@@ -21,10 +21,11 @@ export default function ColorPicker(props) {
         //if this color is not selected, show this
         //borderColor: "black",
         //borderWidth: "2px",
+        borderColor: selColor === color ? "magenta" : "black",
+        borderWidth: selColor === color ? "7px" : "2px",
       }}
       onClick={() => {
-        //set selecting color when clicked
-        //your code here
+        setSelColor(color);
       }}
     />
   );
